@@ -28,9 +28,9 @@ public class UserController {
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	private static ConcurrentMap<Long,User> users;
-	private static AtomicLong usersCounter;
-	private static Object[] mutexs = new Object[5];
+	public static ConcurrentMap<Long,User> users;
+	public static AtomicLong usersCounter;
+	private static Object[] mutexs;
 	
 	static{
 		users = new ConcurrentHashMap<>();
@@ -42,6 +42,7 @@ public class UserController {
 		
 		usersCounter = new AtomicLong(users.size());
 		
+		mutexs = new Object[users.size()];
 		for(int i = 0 ; i < mutexs.length; ++i){
 			mutexs[i] = new Object();
 		}
@@ -75,18 +76,21 @@ public class UserController {
 	
 	@DeleteMapping("/{id}")
 	//@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public User deleteUser(@PathVariable Long id) {
+	public String deleteUser(@PathVariable Long id) {
 		User removedUser = users.remove(id);
-		if(removedUser != null)
+		if(removedUser != null){
 			logger.info("{} is deleted",removedUser);
-		return removedUser;
+			return "success";
+		}
+		return "fail";
+		//return removedUser;
 	}
 
 	@PutMapping("/{id}")
 	//@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public User modifyUser(@PathVariable Long id,@RequestParam String name,@RequestParam int age){
+	public String modifyUser(@PathVariable Long id,@RequestParam String name,@RequestParam int age){
 		User user = users.get(id);
-		if (user != null) {
+		if (user != null && mutexs != null) {
 			Object mutext = mutexs[(int) (id % mutexs.length)];
 			synchronized (mutext) {
 				user.setName(name);
@@ -95,7 +99,8 @@ public class UserController {
 				users.put(id, user);
 			}
 		}
-		return user;
+		//return user;
+		return "success";
 	}
 
     @GetMapping("/{id}/customers")
@@ -103,6 +108,5 @@ public class UserController {
         // ...
     	return null;
     }
-
 
 }
