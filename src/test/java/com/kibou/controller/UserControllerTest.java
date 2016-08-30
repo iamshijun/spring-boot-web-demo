@@ -35,18 +35,16 @@ public class UserControllerTest {
 		mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
 	}
 	
-	@Test 
+	@Test  //FIXME
     public void testUserController() throws Exception { 
 		
         // 测试UserController 
         RequestBuilder request = null; 
 
-        long userCount = UserController.usersCounter.get();
- 
-        User expectedUser = User.create(userCount+1, "new_user", 20);
-        request = post("/users/") 
-                .param("name", expectedUser.getName()) 
-                .param("age", expectedUser.getAge()+""); 
+        User expectedUser = User.create(1L, "shijun", 20);
+        request = post("/users/1") 
+                .param("name", "shijun") 
+                .param("age", "27"); 
         mvc.perform(request) 
                 .andExpect(content().string(equalTo(expectedUser.toJsonString()))); 
 
@@ -55,7 +53,7 @@ public class UserControllerTest {
         request = get("/users/"); 
         mvc.perform(request) 
                 .andExpect(status().isOk()) 
-                .andExpect(MockMvcResultMatchers.jsonPath("$.["+userCount+"].id", Matchers.equalTo((expectedUser.getId().intValue())))); 
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].id", Matchers.equalTo((expectedUser.getId().intValue())))); 
         
         //modify user
         request = put("/users/" + expectedUser.getId()) 
@@ -74,7 +72,6 @@ public class UserControllerTest {
         mvc.perform(request) 
                 .andExpect(content().string(equalTo("success"))); 
 
-        UserController.users.clear();
         // get查一下user列表，应该为空 
         request = MockMvcRequestBuilders.get("/users/"); 
         mvc.perform(request) 
