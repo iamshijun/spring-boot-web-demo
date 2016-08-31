@@ -13,8 +13,10 @@ import org.springframework.stereotype.Repository;
 import com.kibou.common.domain.User;
 import com.kibou.common.repository.IUserRepository;
 
-@Repository("memUserRepository")
-public class UserRepositoryImpl implements IUserRepository{
+@Repository(UserRepositoryMemImpl.COMPONENT_NAME)
+public class UserRepositoryMemImpl implements IUserRepository{
+	
+	public final static String COMPONENT_NAME = "memUserRepository";
 
 	private static ConcurrentMap<Long,User> users;
 	private static AtomicLong usersCounter;

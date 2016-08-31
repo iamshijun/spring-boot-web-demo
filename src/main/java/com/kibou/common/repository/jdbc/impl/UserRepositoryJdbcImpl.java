@@ -1,4 +1,4 @@
-package com.kibou.common.repository.hibernate.impl;
+package com.kibou.common.repository.jdbc.impl;
 
 import java.util.List;
 
@@ -7,9 +7,11 @@ import org.springframework.stereotype.Repository;
 import com.kibou.common.domain.User;
 import com.kibou.common.repository.IUserRepository;
 
-@Repository("userRepository")
-public class UserRepositoryImpl implements IUserRepository {
+@Repository(UserRepositoryJdbcImpl.COMPONENT_NAME)
+public class UserRepositoryJdbcImpl implements IUserRepository {
 
+	public final static String COMPONENT_NAME = "jdbcUserRepository";
+	
 	@Override
 	public List<User> listUsers(int start, int limit) {
 		return null;
@@ -17,6 +19,7 @@ public class UserRepositoryImpl implements IUserRepository {
 
 	@Override
 	public void updateUser(User user) {
+		
 	}
 
 	@Override
@@ -29,6 +32,7 @@ public class UserRepositoryImpl implements IUserRepository {
 		return null;
 	}
 
+	@Override
 	public User getUser(Long id) {
 		return null;
 	}
