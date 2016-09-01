@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Main {
+public class Bootstrap {
 	public static void main(String[] args) {
 		
 //		SpringApplication springApplication = new SpringApplicationBuilder(Parent.class)  // or .sources(Parent.class)
@@ -12,6 +12,6 @@ public class Main {
 
 //		springApplication.run(args);
 		
-		SpringApplication.run(Main.class, args);
+		SpringApplication.run(Bootstrap.class, args);
 	}
 }

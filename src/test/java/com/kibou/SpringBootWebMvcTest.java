@@ -19,7 +19,7 @@ import com.kibou.web.controller.HelloWorldController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes=MockServletContext.class)
-public class SpringBootDemoTest {
+public class SpringBootWebMvcTest {
 
 	private MockMvc mvc;
 

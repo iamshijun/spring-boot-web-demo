@@ -1,11 +1,26 @@
 package com.kibou.common.domain;
 
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.google.common.base.MoreObjects;
+import com.google.common.base.MoreObjects.ToStringHelper;
+@Entity
+@Table(name = "users")
 public class User {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(nullable = false)
 	private String name;
+	@Column
 	private Integer age;
 
 	public User() {
@@ -53,6 +68,30 @@ public class User {
 			e.printStackTrace();
 			return "";
 		}
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof User){
+			User other = (User)obj;
+			return Objects.equals(this.id, other.id)
+					&& Objects.equals(this.name, other.name)
+					 && Objects.equals(this.age, other.age);
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.id,this.name,this.age);
+	}
+	
+	@Override
+	public String toString() {
+		return MoreObjects.toStringHelper(this)
+				.add("name", name)
+				.add("age", age)
+			.toString();
 	}
 	
 	public static void main(String[] args) {

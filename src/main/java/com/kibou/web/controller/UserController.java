@@ -22,12 +22,14 @@ import com.kibou.common.domain.Custom;
 import com.kibou.common.domain.User;
 import com.kibou.common.exception.UserNotFoundException;
 import com.kibou.common.repository.IUserRepository;
+import com.kibou.common.repository.jdbc.impl.UserRepositoryJdbcImpl;
 
 @RestController
 @RequestMapping(value="/users")
 public class UserController {
 	
-	@Resource(name = "memUserRepository")
+//	@Resource(name = "memUserRepository")
+	@Resource(name = UserRepositoryJdbcImpl.COMPONENT_NAME)
 	private IUserRepository userRepository; 
 
 	//value=summary , notes=description , ...

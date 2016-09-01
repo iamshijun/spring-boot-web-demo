@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kibou.common.exception.ErrorInfo;
 import com.kibou.common.exception.JunkWordException;
 
-@ControllerAdvice/*(basePackages={}) //basePackages - 指定包下的controller的异常才会使用当前处理*/
-public class GlocalExceptionHandler {
+//@ControllerAdvice/*(basePackages={}) //basePackages - 指定包下的controller的异常才会使用当前处理*/
+public class GlobalExceptionHandler {
 
 	public static final String DEFAULT_ERROR_VIEW = "error";
 	
