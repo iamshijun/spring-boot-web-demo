@@ -1,4 +1,4 @@
-package com.kibou;
+package com.kibou.springboot.web;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

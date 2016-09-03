@@ -1,4 +1,4 @@
-package com.kibou;
+package com.kibou.springboot.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import com.kibou.common.repository.jpa.impl.UserRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class,webEnvironment = WebEnvironment.NONE)
-public class SpringBootFeatureTest {
+public class SpringBootDataJpaTest {
 	
 	@Autowired
 	UserRepository userRepository;

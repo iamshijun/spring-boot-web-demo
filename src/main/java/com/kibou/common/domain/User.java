@@ -1,5 +1,6 @@
 package com.kibou.common.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -11,10 +12,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.MoreObjects.ToStringHelper;
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable{
+	
+	private static final long serialVersionUID = -4564939067876079885L;
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -26,6 +29,9 @@ public class User {
 	public User() {
 	}
 
+	public static User create(String name, Integer age) {
+		return new User(null, name, age);
+	}
 	public static User create(Long id, String name, Integer age) {
 		return new User(id, name, age);
 	}
