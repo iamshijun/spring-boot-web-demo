@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.annotation.AliasFor;
 
-import com.kibou.java_config.RepoConf;
+import com.kibou.java_config.RepositoryConf;
 
 //@ContextConfiguration
 //@Configuration
@@ -26,7 +26,7 @@ public class SpringFeatureTest {
 	
 	@Test
 	public void testAnnotationConfigApplicationContext(){
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RepoConf.class);
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(RepositoryConf.class);
 		context.close();
 	}
 	

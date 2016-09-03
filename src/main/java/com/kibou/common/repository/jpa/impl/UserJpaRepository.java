@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.kibou.common.domain.User;
 
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserJpaRepository extends JpaRepository<User, Long>{
 
 	//User findById(Long id); // == findOne(Serializable)
 	

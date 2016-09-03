@@ -59,6 +59,13 @@
 		    <artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency> 
 		
+		 <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+		
+		
 		<!-- <dependency>  
 		    <groupId>org.hsqldb</groupId>
 		    <artifactId>hsqldb</artifactId>
@@ -70,11 +77,15 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		</dependency> 
 		
-		<!-- cache -->
+		<!-- cache , nosql -->
 		<dependency>  
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-redis</artifactId>
 		</dependency>
+		<dependency>  
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency> 
 		
 		
 		<!-- serializer -->
