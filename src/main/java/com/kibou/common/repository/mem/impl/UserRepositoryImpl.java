@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.kibou.common.domain.User;
 import com.kibou.common.repository.IUserRepository;
 
-@Repository(UserRepositoryMemImpl.COMPONENT_NAME)
-public class UserRepositoryMemImpl implements IUserRepository{
+@Repository(UserRepositoryImpl.COMPONENT_NAME)
+public class UserRepositoryImpl implements IUserRepository{
 	
 	public final static String COMPONENT_NAME = "memUserRepository";
 

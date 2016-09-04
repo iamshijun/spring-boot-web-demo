@@ -3,27 +3,15 @@ package com.kibou.common.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.MoreObjects;
-@Entity
-@Table(name = "users")
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = -4564939067876079885L;
 	
-	@Id
-	@GeneratedValue
 	private Long id;
-	@Column(nullable = false)
 	private String name;
-	@Column
 	private Integer age;
 
 	public User() {
