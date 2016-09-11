@@ -17,9 +17,14 @@ public class HelloWorldController {
 		return "Hello World";
 	}
 	
-	@RequestMapping("/hello/{name}")
+	@RequestMapping("/junk/{name}")
 	public String json(@PathVariable String name) throws JunkWordException{
 		throw new JunkWordException(name + "is junkword"); 
+	}
+	
+	@RequestMapping("/hello/{name}")
+	public String sayHello(@PathVariable String name) throws JunkWordException{
+		return "Hello : " + name;
 	}
 }
 
