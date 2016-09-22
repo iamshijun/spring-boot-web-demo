@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kibou</groupId>
 	<artifactId>spring-boot-web-demo</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<version>1.0</version>
 	<name>spring-boot-web-demo</name>
 	<url>http://maven.apache.org</url>
@@ -27,20 +27,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
-		<!-- template dependency , thymeleaf & freemark can stand together, velocity cannot live with thymeleaf -->
-		<dependency>  
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency> 
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
-		</dependency> -->
-		<!-- velocity 不能同时和上述的两个模板引擎 -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-velocity</artifactId>
-		</dependency> -->
 		
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -53,22 +39,6 @@
 			<version>${swagger.version}</version>
 		</dependency>
 		
-		<!-- data -->
-		<dependency>  
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-		
-		<!-- <dependency>  
-		    <groupId>org.hsqldb</groupId>
-		    <artifactId>hsqldb</artifactId>
-		    <scope>runtime</scope>
-		</dependency>  -->
-		
-		<dependency>  
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		</dependency> 
 		
 		<!-- including spring-test,junit,mock.. -->
 		<dependency>
@@ -95,4 +65,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>spring-boot-websimple-demo</module>
+		<module>spring-boot-security-demo</module>
+	</modules>
 </project>

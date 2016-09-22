@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.kibou</groupId>
+		<artifactId>spring-boot-web-demo</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>spring-boot-websimple-demo</artifactId>
+
+	<dependencies>
+		<!-- template dependency , thymeleaf & freemark can stand together, velocity 
+			cannot live with thymeleaf -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency> -->
+		<!-- velocity 不能同时和上述的两个模板引擎 -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
+		</dependency> -->
+		
+		
+		
+		<!-- data -->
+		<!-- 当引入了starter-jdbc如果没有相对应的配置相关属性的话 启动会报错 e.g :
+			因为autoConfiguraion会尝试根据classpath情况创建dataSource(默认是org.apache.tomcat.jdbc.pool.DataSource)
+			其中使用到了DataSourceProperties == spring.datasource.XXX配置
+		 -->
+		<dependency>  
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
+		<!-- <dependency>  
+		    <groupId>org.hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		    <scope>runtime</scope>
+		</dependency>  -->
+		
+		<dependency>  
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency> 
+		
+	</dependencies>
+</project>
